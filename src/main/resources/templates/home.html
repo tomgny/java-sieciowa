@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl-PL">
+
+<head>
+	<title>Wyszukiwarka adresów</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet"
+		  th:href="@{/main.css}"/>
+	<link rel="stylesheet"
+	 	  href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+	      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body>
+	<div class="main-content">
+		<div class="header">
+			<h2>Wyszukiwarka adresów oraz kodów pocztowych</h2>
+		</div>
+		<div class="page-content">
+			<div class="data">
+				<br>
+				<a class="btn btn-primary" th:href="@{/kod/podajKod}">Wyszukaj adres przez kod pocztowy</a>
+				<a class="btn btn-primary" th:href="@{/ulicaOrazMiasto/ulicaMiasto}">Wyszukaj adres przez nazwę ulicy oraz miasta</a>
+				<a class="btn btn-primary" th:href="@{powiatLubMiasto/powiatMiasto}">Wyszukaj adres przez nazwę powiatu lub miasta</a>
+			</div>
+		</div>
+	</div>				
+</body>
+
+</html>

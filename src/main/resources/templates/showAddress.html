@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html  lang="pl-PL" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Wyniki</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet"
+		  th:href="@{/main.css}"/>
+	<link rel="stylesheet"
+	 	  href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+	      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body>
+	<div class="main-content">
+		<div class="header">
+			<h2>Znalezione adresy</h2>
+		</div>
+		<div class="page-content">
+			<div class="data">
+				<table class="table table-bordered table-striped">
+					<thead class="thead-dark">
+						<tr>
+							<th>Kod pocztowy</th>
+							<th>Ulica</th>
+							<th>Miasto</th>
+							<th>Województwo</th>
+							<th>Powiat</th>
+						</tr>
+					</thead>
+				   <th:block th:each="address : ${addressList}">
+				      <tr>
+				         <td th:text="${address.zipCode}"></td>
+				         <td th:text="${address.street}"></td>
+				         <td th:text="${address.city}"></td>
+				         <td th:text="${address.voivodeship}"></td>
+				         <td th:text="${address.county}"></td>
+				      </tr>
+				   </th:block>
+				</table>
+			</div>
+		</div>
+		<hr>
+		<br>
+		<a th:href="@{/}">Strona główna</a>
+	</div>
+</body>
+
+</html>

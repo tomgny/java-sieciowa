@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl-PL" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Wyszukaj adres</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet"
+		  th:href="@{/main.css}"/>
+	<link rel="stylesheet"
+	 	  href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+	      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body>
+	<div class="main-content">
+		<div class="header">
+			<h2>Wyszukaj adres za pomocą kodu pocztowego</h2>
+		</div>
+		<div class="page-content">
+			<div class="data">
+				<form action="#" th:action="@{/kod/showAddress}" th:object="${zipCode}" method="post">
+					<br>
+					<p>Podaj kod pocztowy: <input type="text" th:field="*{zipCode}" /></p>
+					<p>Wybierz okręg: 
+						<select th:field="*{district}">
+					    	<option th:each="d : ${districts}" th:value="${d}" th:text="${d}"></option>
+					    </select>
+				    </p>
+				    
+				    <input type="submit" value="Szukaj" />
+				</form>
+			</div>
+		</div>
+		<hr>
+		<br>
+		<a th:href="@{/}">Strona główna</a>
+	</div>
+</body>
+
+</html>

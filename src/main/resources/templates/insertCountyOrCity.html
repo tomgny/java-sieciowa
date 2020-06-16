@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pl-PL" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Wyszukaj adres</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet"
+		  th:href="@{/main.css}"/>
+	<link rel="stylesheet"
+	 	  href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+	      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body>
+	<div class="main-content">
+		<div class="header">
+			<h2>Wyszukaj adres za pomocą nazwy miasta lub powiatu</h2>
+		</div>
+		<div class="page-content">
+			<div class="data">
+				<form action="#" th:action="@{/powiatLubMiasto/showZip}" th:object="${countyCity}" method="post">
+					<br>
+					<p>Podaj nazwę: <input type="text" th:field="*{name}" /></p>
+					<p>Powiat czy miasto ?: 
+						<input type="radio" th:field="*{type}" th:value="${city}" />
+						<label th:for="${city}" th:text="${city}"></label>
+						<input type="radio" th:field="*{type}" th:value="${county}" />
+						<label th:for="${county}" th:text="${county}"></label>
+				    </p>
+				    <p>Wybierz okręg: 
+						<select th:field="*{district}">
+					    	<option th:each="d : ${districts}" th:value="${d}" th:text="${d}"></option>
+					    </select>
+				    </p>
+				    
+				    <input type="submit" value="Szukaj" />
+				</form>
+			</div>
+		</div>
+		<hr>
+		<br>
+		<a th:href="@{/}">Strona główna</a>
+	</div>
+	
+</body>
+
+</html>
